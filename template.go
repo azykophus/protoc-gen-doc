@@ -551,10 +551,10 @@ func parseServiceMethod(pm *protokit.MethodDescriptor) *ServiceMethod {
     methodOptions := extractOptions(pm.GetOptions())
     methodExtensionOptions := make(map[string]interface{})
 
-    methodOpts := pm.GetOptions() // ✅ Already *descriptor.MethodOptions (no type assertion needed)
+    methodOpts := pm.GetOptions()
 
     if methodOpts != nil {
-        // ✅ Using registered extensions to get correct names dynamically
+        // Using registered extensions to get correct names dynamically
         for _, extDesc := range proto.RegisteredExtensions(methodOpts) {
             if extValue, err := proto.GetExtension(methodOpts, extDesc); err == nil && extValue != nil {
                 methodExtensionOptions[extDesc.Name] = extValue
