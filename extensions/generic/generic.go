@@ -34,7 +34,6 @@ func identityTransformer(payload interface{}) interface{} {
 }
 
 // ExtractOptionName extracts a cleaner name from a full extension name
-// For example: "custom.method.option.xxxx_yyy_50001" -> "custom.method.option"
 func ExtractOptionName(fullName string) string {
 	// Match the base name pattern (everything before the last dot and numbers)
 	re := regexp.MustCompile(`(.*?)\.[\w_]+\d+$`)
