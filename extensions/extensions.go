@@ -33,7 +33,7 @@ func SetDefaultTransformer(f Transformer) {
 	defaultTransformer = f
 }
 
-// Explicitly fixed Transform function (fully generic)
+// Generic Transform function
 func Transform(extensions map[string]interface{}) map[string]interface{} {
 	if extensions == nil {
 		return nil
