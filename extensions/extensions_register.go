@@ -40,7 +40,7 @@ func registerExtension(ext *protokit.ExtensionDescriptor) {
 		ExtendedType:  extendedType,
 		ExtensionType: extType,
 		Field:         int32(ext.GetNumber()),
-		Name:          correctFullName, // explicitly correct now
+		Name:          correctFullName,
 		Tag:           generateTag(ext),
 	})
 }
@@ -114,7 +114,6 @@ func determineExtensionType(ext *protokit.ExtensionDescriptor) interface{} {
 		}
 		return (*int32)(nil) // single enum represented as *int32
 	case descriptor.FieldDescriptorProto_TYPE_MESSAGE:
-		// Skip temporarily, as we discussed before
 		return nil
 	default:
 		panic(fmt.Sprintf("Unsupported extension field type: %s", ext.GetType().String()))
